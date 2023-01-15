@@ -24,8 +24,6 @@ export class Grid {
 
     p5.fill(color);
     p5.noStroke();
-    // p5.stroke(0);
-    p5.strokeWeight(0);
     p5.rect(x, y, gridSize, gridSize);
   }
 

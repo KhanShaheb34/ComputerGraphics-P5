@@ -102,3 +102,16 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.github {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border: 0;
+  padding: 10px;
+}
+
+.github > a {
+  text-decoration: underline;
+  color: #f5ebe0;
+}
