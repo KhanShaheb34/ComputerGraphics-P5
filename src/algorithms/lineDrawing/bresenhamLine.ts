@@ -5,7 +5,8 @@ export const BresenhamLine = (
   x1: number,
   y1: number,
   x2: number,
-  y2: number
+  y2: number,
+  color?: string
 ) => {
   let m = (y2 - y1) / (x2 - x1);
 
@@ -29,7 +30,7 @@ export const BresenhamLine = (
   let pInc2 = dx < dy ? 2 * (dx - dy) : 2 * (dy - dx);
 
   while (x <= x2 && y <= y2) {
-    display.putPixel(x, m < 0 ? display.resolution - y : y);
+    display.putPixel(x, m < 0 ? display.resolution - y : y, color);
     dx < dy ? y++ : x++;
     if (p < 0) {
       p += pInc1;

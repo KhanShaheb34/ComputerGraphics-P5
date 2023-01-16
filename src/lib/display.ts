@@ -1,6 +1,7 @@
 import P5 from 'p5';
 import { Grid } from './grids';
 import { fixCoordinates } from './utils';
+import { DDA } from '../algorithms/lineDrawing/dda';
 
 export class Display {
   public grids: Grid[][];
@@ -90,5 +91,15 @@ export class Display {
       this.W,
       this.W / 2 + this.gridSize / 2
     );
+  };
+
+  public drawLine = (
+    x1: number,
+    y1: number,
+    x2: number,
+    y2: number,
+    color?: string
+  ) => {
+    DDA(this, x1, y1, x2, y2, color);
   };
 }
