@@ -14,7 +14,7 @@ export const BresenhamCircle = (
 
   plotEightWaySymmetric(display, x0, y0, x, y);
 
-  while (y >= x) {
+  while (y > x) {
     x++;
     if (decision > 0) {
       y--;
