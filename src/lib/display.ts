@@ -36,11 +36,11 @@ export class Display {
     }
   }
 
-  public putPixel(i: number, j: number) {
+  public putPixel(i: number, j: number, color?: string) {
     i = Math.round(i);
     j = Math.round(j);
     if (i < 0 || i >= this.resolution || j < 0 || j >= this.resolution) return;
-    this.grids[j][i].changeColor('#001219');
+    this.grids[j][i].changeColor(color || '#001219');
   }
 
   public removePixel(i: number, j: number) {
