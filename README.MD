@@ -4,11 +4,11 @@ Computer Graphic algorithm experiments using [p5.js](https://p5js.org/).
 
 ## Algorithms
 
-- [DDA Line Drawing](/src/algorithms/lineDrawing/dda.ts)
-- [Bresenham Line Drawing](/src/algorithms/lineDrawing/bresenhamLine.ts)
-- [Bresenham Circle Drawing](/src/algorithms/circleDrawing/bresenhamCircle.ts)
-- [Midpoint Circle Drawing](/src/algorithms/circleDrawing/midPoint.ts)
-- [Cohen Sutherland Line Clipping](/src/algorithms/lineClipping/cohenSutherland.ts)
+- [DDA Line Drawing](/algorithms/lineDrawing/dda.ts)
+- [Bresenham Line Drawing](/algorithms/lineDrawing/bresenhamLine.ts)
+- [Bresenham Circle Drawing](/algorithms/circleDrawing/bresenhamCircle.ts)
+- [Midpoint Circle Drawing](/algorithms/circleDrawing/midPoint.ts)
+- [Cohen Sutherland Line Clipping](/algorithms/lineClipping/cohenSutherland.ts)
 
 ## Add a new algorithm:
 
