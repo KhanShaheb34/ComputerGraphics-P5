@@ -40,14 +40,14 @@ export class Display {
     i = Math.round(i);
     j = Math.round(j);
     if (i < 0 || i >= this.resolution || j < 0 || j >= this.resolution) return;
-    this.grids[i][j].changeColor('#001219');
+    this.grids[j][i].changeColor('#001219');
   }
 
   public removePixel(i: number, j: number) {
     i = Math.round(i);
     j = Math.round(j);
     if (i < 0 || i >= this.resolution || j < 0 || j >= this.resolution) return;
-    this.grids[i][j].changeColor('#f5ebe0');
+    this.grids[j][i].changeColor('#f5ebe0');
   }
 
   public get(i: number, j: number) {
