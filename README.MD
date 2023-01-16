@@ -12,7 +12,7 @@ Computer Graphic algorithm experiments using [p5.js](https://p5js.org/).
 
 ## Add a new algorithm:
 
-1. Create a new file in the `src/algorithms` folder.
+1. Create a new file in the `algorithms` folder.
 2. Write a function for the algorithm with `display: Display` as a parameter.
 3. Use `display.setPixel(x, y)` to set a pixel on the canvas.
 4. Call the function in the `draw` function in `src/main.ts`.

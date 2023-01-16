@@ -1,4 +1,5 @@
-import { CohenSutherland } from './algorithms/lineClipping/cohenSutherland';
+import { BresenhamCircle } from '../algorithms/circleDrawing/bresenhamCircle';
+import { CohenSutherland } from '../algorithms/lineClipping/cohenSutherland';
 import { Display } from './lib/display';
 import './style.css';
 import P5 from 'p5';
@@ -18,8 +19,8 @@ const sketch = (p5: P5) => {
   p5.draw = () => {
     display.draw(p5);
     // DDA(display, 10, 12, 35, 42);
-    // BresenhamLine(display, 10, 7, 35, 37);
-    // BresenhamCircle(display, 0, 0, 15);
+    // BresenhamLine(display, 10, 90, 80, 10);
+    BresenhamCircle(display, 0, 0, 15);
     // MidPointCircle(display, 0, 0, 5);
 
     CohenSutherland(display, 10, 12, 35, 42);

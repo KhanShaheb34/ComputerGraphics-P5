@@ -1,7 +1,7 @@
 import P5 from 'p5';
 import { Grid } from './grids';
 import { fixCoordinates } from './utils';
-import { DDA } from '../algorithms/lineDrawing/dda';
+import { DDA } from '../../algorithms/lineDrawing/dda';
 
 export class Display {
   public grids: Grid[][];

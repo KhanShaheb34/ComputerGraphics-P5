@@ -1,4 +1,4 @@
-import { Display } from '../../lib/display';
+import { Display } from '../../src/lib/display';
 import { plotEightWaySymmetric } from './plotEightWaySymmetric';
 
 export const MidPointCircle = (
