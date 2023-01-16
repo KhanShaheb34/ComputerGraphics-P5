@@ -1,17 +1,25 @@
 import P5 from 'p5';
 import { Grid } from './grids';
+import { fixCoordinates } from './utils';
 
 export class Display {
   public grids: Grid[][];
   public resolution: number;
   public gridSize: number;
   public W: number;
+  public centerOrigin: boolean;
 
-  constructor(resolution: number, gridSize: number, W: number) {
+  constructor(
+    resolution: number,
+    gridSize: number,
+    W: number,
+    { centerOrigin }: { centerOrigin?: boolean } = {}
+  ) {
     this.resolution = resolution;
     this.gridSize = gridSize;
     this.grids = this.createEmptyGrids();
     this.W = W;
+    this.centerOrigin = !!centerOrigin;
   }
 
   private createEmptyGrids() {
@@ -25,29 +33,39 @@ export class Display {
     return grids;
   }
 
-  public draw(p5: P5) {
+  public draw(
+    p5: P5,
+    {
+      showCoordinate,
+      showGrid,
+    }: { showCoordinate?: boolean; showGrid?: boolean } = {}
+  ) {
     p5.background('#f5ebe0');
     p5.translate(0, this.W);
     p5.scale(1, -1);
+
+    if (showGrid) p5.stroke(255);
+    else p5.noStroke();
+
     for (const row of this.grids) {
       for (const grid of row) {
         grid.draw(p5, this.gridSize);
       }
     }
+
+    if (showCoordinate) this.drawCoordinate(p5);
   }
 
   public putPixel(i: number, j: number, color?: string) {
-    i = Math.round(i);
-    j = Math.round(j);
-    if (i < 0 || i >= this.resolution || j < 0 || j >= this.resolution) return;
-    this.grids[j][i].changeColor(color || '#001219');
+    let [x, y] = fixCoordinates(i, j, this.resolution, this.centerOrigin);
+    if (x === null || y === null) return;
+    this.grids[y][x].changeColor(color || '#001219');
   }
 
   public removePixel(i: number, j: number) {
-    i = Math.round(i);
-    j = Math.round(j);
-    if (i < 0 || i >= this.resolution || j < 0 || j >= this.resolution) return;
-    this.grids[j][i].changeColor('#f5ebe0');
+    let [x, y] = fixCoordinates(i, j, this.resolution, this.centerOrigin);
+    if (x === null || y === null) return;
+    this.grids[y][x].changeColor('#f5ebe0');
   }
 
   public get(i: number, j: number) {
@@ -56,5 +74,21 @@ export class Display {
 
   public reset = () => {
     this.grids = this.createEmptyGrids();
+  };
+
+  public drawCoordinate = (p5: P5) => {
+    p5.stroke('#001219');
+    p5.line(
+      this.W / 2 + this.gridSize / 2,
+      0,
+      this.W / 2 + this.gridSize / 2,
+      this.W
+    );
+    p5.line(
+      0,
+      this.W / 2 + this.gridSize / 2,
+      this.W,
+      this.W / 2 + this.gridSize / 2
+    );
   };
 }

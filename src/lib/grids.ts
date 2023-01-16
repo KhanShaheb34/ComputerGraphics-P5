@@ -23,7 +23,6 @@ export class Grid {
     const y = i * gridSize;
 
     p5.fill(color);
-    p5.noStroke();
     p5.rect(x, y, gridSize, gridSize);
   }
 
