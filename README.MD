@@ -9,6 +9,12 @@ Computer Graphic algorithm experiments using [p5.js](https://p5js.org/).
 - [Bresenham Circle Drawing](/algorithms/circleDrawing/bresenhamCircle.ts)
 - [Midpoint Circle Drawing](/algorithms/circleDrawing/midPoint.ts)
 - [Cohen Sutherland Line Clipping](/algorithms/lineClipping/cohenSutherland.ts)
+- [Region Filling](algorithms/filling/regionFilling.ts)
+- Transformation
+  - [Translation](/algorithms/transformation/translate.ts)
+  - [Rotation](/algorithms/transformation/rotate.ts)
+  - [Scaling](/algorithms/transformation/scale.ts)
+  - [Reflection](/algorithms/transformation/reflect.ts)
 
 ## Add a new algorithm:
 

@@ -1,4 +1,6 @@
+import p5 from 'p5';
 import { Display } from '../../src/lib/display';
+import { fixCoordinates } from '../../src/lib/utils';
 
 export const RegionFilling = (
   display: Display,
@@ -46,4 +48,20 @@ const validPixel = (
     j < display.resolution &&
     !visited.some(({ i: i1, j: j1 }) => i1 === i && j1 === j)
   );
+};
+
+export const fillOnMouseClick = (
+  display: Display,
+  p5: p5,
+  gridSize: number,
+  W: number
+) => {
+  const [i, j] = fixCoordinates(
+    (W - p5.mouseY) / gridSize,
+    p5.mouseX / gridSize,
+    W,
+    false
+  );
+  if (!i || !j) return;
+  RegionFilling(display, i, j, 'black');
 };

@@ -1,6 +1,6 @@
 import { Display } from '../../src/lib/display';
 
-type Points = Array<{ i: number; j: number }>;
+export type Points = Array<{ i: number; j: number }>;
 
 export const PolygonDrawing = (display: Display, points: Points) => {
   for (let i = 0; i < points.length; i++) {

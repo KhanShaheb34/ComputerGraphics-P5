@@ -1,8 +1,11 @@
-import { RegionFilling } from '../algorithms/filling/regionFilling';
+import { fillOnMouseClick } from '../algorithms/filling/regionFilling';
 import { PolygonDrawing } from '../algorithms/polygonDrawing/polygonDrawing';
-import { PolygonExamplePoints } from '../algorithms/polygonDrawing/polygonExample';
+import { RectanglePoints } from '../algorithms/polygonDrawing/rectangleExample';
+import { Reflect } from '../algorithms/transformation/reflect';
+import { Rotate } from '../algorithms/transformation/rotate';
+import { Scale } from '../algorithms/transformation/scale';
+import { Translate } from '../algorithms/transformation/translate';
 import { Display } from './lib/display';
-import { fixCoordinates } from './lib/utils';
 import './style.css';
 import P5 from 'p5';
 
@@ -30,20 +33,22 @@ const sketch = (p5: P5) => {
     // CohenSutherland(display, 15, 85, 65, 90);
     // CohenSutherland(display, 50, 95, 95, 30);
 
-    PolygonDrawing(display, PolygonExamplePoints);
-    // RegionFilling(display, 37, 45, 'black', 'red');
+    PolygonDrawing(display, RectanglePoints);
+
+    PolygonDrawing(
+      display,
+      Translate(
+        Reflect(
+          Scale(Rotate(Translate(RectanglePoints, -50, -45), 45), 1.2, 1.5),
+          'y'
+        ),
+        50,
+        45
+      )
+    );
   };
 
-  // p5.mousePressed = () => {
-  //   const [i, j] = fixCoordinates(
-  //     (W - p5.mouseY) / GRID_SIZE,
-  //     p5.mouseX / GRID_SIZE,
-  //     W,
-  //     false
-  //   );
-  //   if (!i || !j) return;
-  //   RegionFilling(display, i, j, 'black');
-  // };
+  p5.mousePressed = () => fillOnMouseClick(display, p5, GRID_SIZE, W);
 };
 
 new P5(sketch);
